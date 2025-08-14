@@ -1,0 +1,29 @@
+# Copyright 2025 AGNTCY Contributors (https://github.com/agntcy)
+# SPDX-License-Identifier: Apache-2.0
+
+---
+name: Run all tests for main
+
+on:
+  push:
+    # Run superlinter on pushes to default branch
+    branches:
+      - main
+  # Run superlinter on pull request events
+  pull_request:
+
+# Declare default permissions as read-only
+permissions: read-all
+
+jobs:
+  test-sdk:
+    name: Test SDK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'

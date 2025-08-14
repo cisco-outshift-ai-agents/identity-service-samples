@@ -1,0 +1,40 @@
+# Copyright 2025 Cisco Systems, Inc. and its affiliates
+# SPDX-License-Identifier: Apache-2.0
+
+---
+name: identity-service-samples
+services:
+  identity-service-samples-currency-exchange-mcp-server:
+    container_name: identity-service-samples-currency-exchange-mcp-server
+    build:
+      context: ./mcp/currency_exchange
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "9092:9090"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  identity-service-samples-currency-exchange-a2a-agent:
+    container_name: identity-service-samples-currency-exchange-a2a-agent
+    build:
+      context: ./agent/a2a/currency_exchange
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - identity-service-samples-currency-exchange-mcp-server
+    ports:
+      - "9093:9091"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  identity-service-samples-financial-assistant-oasf-agent:
+    container_name: identity-service-samples-financial-assistant-oasf-agent
+    build:
+      context: ./agent/oasf/financial_assistant
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - identity-service-samples-currency-exchange-a2a-agent
+    ports:
+      - "9094:9092"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
