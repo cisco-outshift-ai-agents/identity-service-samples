@@ -90,3 +90,22 @@ pip install .
 # Run the test client
 python test_client.py
 ```
+
+## Roadmap
+
+See the [open issues](https://github.com/cisco-outshift-ai-agents/identity-service-samples/issues) for a list
+of proposed features (and known issues).
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to
+learn, inspire, and create. Any contributions you make are **greatly
+appreciated**. For detailed contributing guidelines, please see
+[CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Copyright Notice
+
+[Copyright Notice and License](LICENSE)
+
+Distributed under Apache 2.0 License. See LICENSE for more information.
+Copyright [AGNTCY](https://github.com/agntcy) Contributors.
