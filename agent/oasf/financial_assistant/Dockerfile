@@ -10,7 +10,7 @@ COPY ./agent/oasf/financial_assistant/* .
 RUN pip install --no-cache-dir .
 
 # Copy UI files to ui directory
-COPY ./samples/agent/oasf/financial_assistant/ui/ ./ui/
+COPY ./agent/oasf/financial_assistant/ui/ ./ui/
 
 # Expose only one port for uvicorn
 EXPOSE 9093
